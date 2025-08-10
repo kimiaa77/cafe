@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>کافه خیابان</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+ <style>
+
+@font-face{
+    font-family: 'vazir';
+    src: url(./fonts/vazir.ttf);
+}
+
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  .top-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 70px;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 10;
+  
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    direction: rtl;
+  }
+  .menu li {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 70px;
+    cursor: pointer;
+  }
+  .hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('./images/bakcground-header.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /*  جلوی دوبل شدن عکس رو میگیره */
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* لایه تاریک روی عکس */
+    z-index: 1;
+  }
+  .text-on-image {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 600px;
+    padding: 0 20px;
+    text-shadow: 2px 2px 6px black;
+  }
+  .text-on-image h1 {
+    font-weight: normal;
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+  .text-on-image p {
+    font-weight: normal;
+    font-size: 20px;
+  }
+  .section-two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  gap: 50px;
+  flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.image-box {
+  flex: 1 1 400px;
+  height: 400px;
+  background-color: #eee;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  background-image: url(./images/love.jpg);
+}
+
+.text-box {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.text-box h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.text-box p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.text-box button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.text-box button:hover {
+  background-color: #444;
+}
+
+.image-section {
+  position: relative;
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.image-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.fourth-section {
+  padding: 50px;
+  background-color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.section-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  flex: 1;
+  max-width: 400px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 400px;
+  text-align: right;
+}
+
+.section5 {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.section5 .image-container {
+  position: relative;
+  width: 100%;
+  
+  margin: 0 auto;
+}
+
+.section5 .image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section5 .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.section5 .text-container {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+  width: 90%;
+  padding: 1rem;
+}
+
+.section5 .text-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.section5 .text-container p {
+  font-size: 1.2rem;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.section6 {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  flex-wrap: nowrap; /* مهم‌ترین قسمت! */
+}
+
+
+.section6 .text-part h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.section6 .text-part p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.section6 .gallery {
+  width: 500px;
+  height: 500px;        
+  object-fit: cover;    /* نمی‌ذاره عکس خراب شه */
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+}
+
+.section6 .gallery img {
+  width: 45%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.section6 .gallery img:hover {
+  transform: scale(1.05);
+}
+
+.dark-section {
+  background-color: #111; /* بک‌گراند تیره */
+  color: #fff;            /* متن سفید */
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.dark-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.dark-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.dark-section {
+  background-color: #111;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.dark-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.dark-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* استایل عضویت خبرنامه */
+.newsletter-box {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  text-align: right;
+  direction: rtl;
+}
+
+.newsletter-title {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.newsletter-input {
+  width: 150px;
+  height: 30px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.social-box {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  text-align: right;
+}
+
+.social-title {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.social-icons i {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.social-icons i:hover {
+  color: #ccc;
+}
+
+.bottom-bar {
+  background-color: rgb(17, 17, 17, 0.9); /* مشکی کمی روشن‌تر */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-family: 'Vazir';
+
+.bottom-bar h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.bottom-bar p {
+  margin: 4px 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+
+</style>
+</head>
+<body dir="rtl">
+
+<header class="top-bar">
+  <ul class="menu">
+    <li>خانه</li>
+    <li>قهوه</li>
+    <li>نوشیدنی</li>
+    <li>کیک</li>
+    <li>درباره ما</li>
+    <li>تماس با ما</li>
+  </ul>
+  <!-- <img class="logo"  src="./images/logo.png" alt="logo"> -->
+</header>
+
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="text-on-image">
+    
+    <h1>قهوه های ما چه طعمی هستن؟</h1>
+    <p>فقط کافیه یک بار امتحان کنید همون یکبار کافیه تا عاشقش بشید</p>
+  </div>
+</section>
+<!-- ===== بخش دوم (عکس + متن + دکمه) ===== -->
+<section class="section-two">
+  <div class="image-box" style="background-image: url('./images/love.jpg'); alt: عکس 3;"></div>
+  <div class="text-box">
+    <h2>این شروع داستان ماست</h2>
+    <p>ما با داستانی عاشقانه شروع کردیم!داستانی که شروعش با یک قهوه دو نفره بود و حالا هروز قهوه های دو نفره زوج های عاشق رو اینجا شاهد هستیم.اینجا خونه ی عشقه و ما عاشق قهوه های دو نفره ایم همین کافیه تا یه داستان فوق العاده رقم بخوره</p>
+    
+  </div>
+</section>
+
+<!-- بخش سوم (عکس با متن وسط) -->
+<section class="image-section">
+  <img src="./images/backtwo.jpg" alt="عکس بخش سوم">
+  <div class="text-overlay">
+    <h2>فضای صمیمی و دلنشین</h2>
+    <p>ما اینجا کلی دوست باحال داریم اینجا هممون با هم رفیقیم و از لحظات خودمون بهترین استفاده رو میبریم اینجا همه خوبن همه مهربونن و همه سعی میکنن بهترین آدم زندگیشون باشن پس شما هم به ما بپیوندید.</p>
+  </div>
+</section>
+<!--عکس چهارتایی)بخش چهارم)-->
+<section class="fourth-section">
+  <div class="section-content">
+    <div class="image-grid">
+      <img src="./images/manu.jpg" alt="عکس 1" />
+      <img src="./images/manu2.jpg" alt="عکس 2" />
+      <img src="./images/menu3.jpg" alt="عکس 3" />
+      <img src="./images/menu4.jpg" alt="عکس 4" />
+    </div>
+    <div class="text-content">
+
+        <h2>فهرست انتخاب</h2>
+    <p>در این قسمت میتونید فهرست کوچکی از امکانات پر شمار مارو مشاهده کنید انواع قهوه ها و همینطور انواع نوشیدنی ها و حتی انواع کیک های خوشمزه و دسر های رنگارنگ شما با نگاه کردن به فهرست ما قطعا متوجه میشین که اینجا همه چیز گیر میاد البته نه چیزهای بد مزه اینجا همه چی طرفدار داره شما طرفدار کدوم خوردنی هستی؟</p>
+<button>دیدن بقیه فهرست</button>
+    </div>
+  </div>
+</section>
+<!--بخش پنج-->
+
+<div class="section5">
+  <div class="image-container">
+    <img src="./images/hot.jpeg" alt="عکس بخش پنجم" />
+    <div class="overlay"></div>
+    <div class="text-container">
+      <h1>داغ و دلنشین</h1>
+      <p>با ما همیشه تازه ترین هارو امتحان کن</p>
+    </div>
+  </div>
+</div>
+<!--بخش شش-->
+
+<div class="section6">
+  <div class="text-part">
+    <h2>خوشمزه و لذت بخش</h2>
+    <p>ما اینجا کلی خوردنی خوشمزه داریم!کیک های مختلف برای تولدهای شما انواع قهوه ها و نوشیدنی های خنک و گرم ما دوس داریم شما زمانی که اینجا هستین بهترین لحظاتتون رو پشت سر بزترید پس نگران طعم و مزه نباشید اینجا همه چی خوشمزه و لذت بخشه.</p>
+  </div>
+
+  <div class="gallery">
+    <img src="./images/delight.jpg" alt="عکس ۱" />
+    <img src="./images/delighttwo.jpg" alt="عکس ۲"/>
+  </div>
+</div>
+
+<!--بخش هفتم-->
+
+<section class="dark-section">
+  <h2>درباره ما</h2>
+  <p>
+    ما با داستانی عاشقانه شروع کردیم!داستانی که شروعش با یک قهوه دو نفره بود و حالا هروز
+    <br>
+    قهوه های دو نفره زوج های عاشق رو اینجا شاهد هستیم.اینجا خونه عشقه و ما عاشق قهوه
+    <br>
+    های دو نفره ایم کافیه تا یه داستان فوق العاده رقم بخوره
+  </p>
+
+<div class="newsletter-box">
+  <p class="newsletter-title">عضویت خبرنامه</p>
+  <div class="newsletter-input"></div>
+  <input type="text" placeholder="email">
+</div>
+
+<div class="social-box">
+  <p class="social-title">دنبال کنید</p>
+  <div class="social-icons">
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-facebook-f"></i>
+    <i class="fab fa-linkedin-in"></i>
+    <i class="far fa-envelope"></i>
+  </div>
+</div>
+
+</section>
+
+<section class="bottom-bar">
+  <h2>کافه خیابان</h2>
+  <p>تمامی حقوق مادی و معنوی این طرح متعلق به ما میباشد</p>
+</section>
+
+</body>
+</html>
